@@ -8,7 +8,9 @@ Affiliation: *Cornell Univeristy and Schmidt Futures report*
 
 Year: 2020
 
+This paper presents an overview on:
 
+* 
 
 
 This is an image:
