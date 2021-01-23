@@ -8,7 +8,7 @@ Affiliation: *Cornell Univeristy and Schmidt Futures report*
 
 Year: 2020
 
-This paper presents an overview on fundamental deep learning (DL) concepts, the development and interpretability of DL models trained on less data than tradititonal applications, and tutorials and codes for reference.
+This paper presents an overview on fundamental deep learning (DL) models, tasks methods, the development and interpretability of DL models trained on less data than tradititonal applications (e.g. using data augmentation, or self-supervised models), and tutorials and codes for reference.
 
 ### The problems tackled by DL applications
 * *Prediction problems* to map inputs to predicted outputs.
