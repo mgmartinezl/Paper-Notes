@@ -47,11 +47,59 @@ Note the presence of iterative steps in the following pipeline. DL cannot be tho
 
 The authors here highlight the role of *supervised learning* as *"the most basic yet most critical method for training deep neural networks"*.
 
-**Multilayer Perceptrons**  
+**1. Multilayer Perceptrons**  
 The authors state those are the most basic DL models, as they are more expressive than logistic/linear regression models. I would say here, that MLP are more expressive than linear models in general, as they allow to tackle classification problems for which decision boundaries are nonlinear. The authors also highlight that typical linear models such would be a good first step to try. However, I would say it's almost mandatory to try them, along with a simple baseline model that allows us to benchmark if more complex solutions are actually adding more value vs relatively simple ones.
 
-**Convolutional Neural Networks**  
+**2. Convolutional Neural Networks**  
 By far, the most common family of NNs, highly used in computer vision applications. The most common use cases for CNNs are summarized in the following image:
 
 ![CNNs Use Cases](CNNs_applications.PNG)
+
+**2.1. Image Classification**  
+Most common architectures for image classification include: 
+* *VGG*, a simple stack of convolutional layers followed by a fully connected layer.
+* *ResNets* which are a family of convolutional networks of different sizes and depths and *skip connections*. Basic idea behind ResNets is to backpropagate through the identity function to preserve the gradient.
+
+    ![ResNet](ResNet.PNG)
+
+* *DenseNets*, where unlike standard neural networks, every layer in a "block" is connected to every other layer. This ensures a maximum flow of information between the layers, and the concatenation of the channel feature dimension results in highly compact models.
+  
+    ![DenseNet](DenseNet.PNG)
+
+* More recently, *ResNeXt* and *EfficientNets*.
+
+**2.2. Object Detection**  
+In the authors words, while *"image classification can be thought of as a global summary of the image*, object detection focuses on the lower details of tha image that allow capturing and identifying specific details (e.g. objects) in them. DL models for object detection are composed by a *backbone* (an image classification model) and a *region proposal* component (to draw the bounding boxes around detected objects). Examples of the most common pre-trained models for such purpose are:
+
+* Faster R-CNN.
+* YOLOv3.
+* EfficientDets.
+* Mask R-CNN.
+
+**2.3. Semantic Segmentation and Instance Segmentation**  
+These applications intent to exploit the lowest levels of detail contained in the processed images, this is, categorize every single pixel in them. Example taken from the paper: suppose we are given an image of a street, with a road, different vehicles, pedestrians, etc. We would like to determine if a pixel is part of any pedestrian, part of any vehicle or part of the road. In instance segmentation, these pixels would be further subdivided into those belonging to pedestrian one, pedestrian two or pedestrian three.
+
+**3. Super-Resolution**  
+Super resolution is a technique for transforming low resolution images to high resolution images. This problem is considered to be undetermined because there multiple possible mappings of a high-resolution output that can be assigned to a single low-resolution image (fewer equations than unknowns). Some of the available architectures to solve this problem include:
+
+* SRCNN
+* Residual Dense Networks
+* Predictive Filter Flow, which has also looked at image denoising and deblurring.
+  
+**4. Image Registration**  
+Image registration considers the problem of aligning two input images to each other. For instance, when the two input images might be from different imaging modalities (e.g. a 3D scan and a
+2D image).
+
+**5. Pose Estimation**  
+Pose estimation, and most popularly human pose estimation, studies the problem of predicting the pose of a human in a given image. DL models are trained to identify the location of the main joints, the keypoints (e.g. knees, elbows, head) of the person in the image. Widely used in neuroscience, these models help in the prediction of animal behavior. 
+
+![PE](PoseEstimation.PNG)
+
+**Applications not covered by the authors of this paper: video prediction, action recognition, and style transfer**.
+
+
+
+
+
+
 
