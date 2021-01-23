@@ -109,7 +109,12 @@ taking in the input sequence and learning to extract the important features, whi
 
 ![Seq-to-Seq](Seq-to-Seq.PNG)
 
-**6.3. Question Answering**
+**6.3. Question Answering**  
+Models employed for this task are given a paragraph of text (as context) and a specific question to answer on this context as input. It must then output the part of the paragraph that answers the question.
+
+**6.3. Recurrent Neural Networks**  
+
+![RNN](RNN.PNG)
 
 
 
