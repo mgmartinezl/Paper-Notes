@@ -95,11 +95,29 @@ Pose estimation, and most popularly human pose estimation, studies the problem o
 
 ![PE](PoseEstimation.PNG)
 
+
+
+**6. Neural Networks for Sequence Data**  
+When data has sequential structure (e.g. words in a sentence, aminoacid sequences in a protein), DL models need to be able to capture that special attribute. Sequential models are an extensive research field predominantly influenced by advances in Natural Language Processing (NLP). In particular, *machine translation* and *question answering* have been popular tasks. Within the machine translation tasks, we can find:
+
+**6.1. Language Modelling (Next Token Prediction)**
+Language modelling is a self-supervised learning method because the models used to learn from such tasks do not need to consider additional labels to the ones already set by the inputs (e.g. a sentence). In NLP, neural networks are fed with sequences of words so that the next one coming can be predicted.
+
+**6.2. Sequence to Sequence Tasks**  
+While next token prediction focuses on placing the correct entry that follows a sequence, seq-to-seq tasks transform the complete input sequence into another sequence. This is the typical application of translation machines. Sequence to sequence tasks typically rely on neural network models that have an encoder-decoder structure, with the encoder neural network
+taking in the input sequence and learning to extract the important features, which is then used by the decoder neural network to produce the target output:
+
+![Seq-to-Seq](Seq-to-Seq.PNG)
+
+**6.3. Question Answering**
+
+
+
+
+
+
+
+
+
+
 **Applications not covered by the authors of this paper: video prediction, action recognition, and style transfer**.
-
-
-
-
-
-
-
