@@ -45,4 +45,13 @@ Note the presence of iterative steps in the following pipeline. DL cannot be tho
 
 ### Standard Neural Network Models and Tasks
 
+The authors here highlight the role of *supervised learning* as *"the most basic yet most critical method for training deep neural networks"*.
+
+**Multilayer Perceptrons**  
+The authors state those are the most basic DL models, as they are more expressive than logistic/linear regression models. I would say here, that MLP are more expressive than linear models in general, as they allow to tackle classification problems for which decision boundaries are nonlinear. The authors also highlight that typical linear models such would be a good first step to try. However, I would say it's almost mandatory to try them, along with a simple baseline model that allows us to benchmark if more complex solutions are actually adding more value vs relatively simple ones.
+
+**Convolutional Neural Networks**  
+By far, the most common family of NNs, highly used in computer vision applications. The most common use cases for CNNs are summarized in the following image:
+
+![CNNs Use Cases](CNNs_applications.PNG)
 
