@@ -113,9 +113,45 @@ taking in the input sequence and learning to extract the important features, whi
 Models employed for this task are given a paragraph of text (as context) and a specific question to answer on this context as input. It must then output the part of the paragraph that answers the question.
 
 **6.3. Recurrent Neural Networks**  
+Different from classical CNNs, or MLPs, RNNs were they first type of DL architecture useful for tasks that involved dealing with sequential data. The reason for this is that such NNs are not simply feedforward NNs that map an input to an output, but they include *feedback connections* that enable the preservation and modification of an internal state across timesteps (e.g. a sequence of words is processed token by token, and each of those tokens cause an update in the internal state of the RNN). This said, RNNs are great to deal with length-variable sequences of data, as they are able to keep for instance, the setences' context, usually key to generate a final output.
+
+Typical RNNs include the GRUs (Gated Recurrent Units), but perhaps the most popular model is the bi-LSTM (bidirectional Long-Short Term Memory NNs) that incorporates a gating function to control the updates in the network, and runs both forward and backwards to process the sequences.
 
 ![RNN](RNN.PNG)
 
+In practice, implementing bi-LSTM can be tricky because of:
+* Exploding/vanishing gradients resulting from the challenges imposed by recursiveness.
+* Longer training times (as required to output token by token).
+* The need to learn from *long term sequential dependencies.*
+
+Transformers have emerged to alleviate the first two challenges mentioned above.
+
+**6.4. Attention**  
+Learning from long-term sequential dependencies, or long-range dependencies has been a challenge for RNN, as it's often tricky to capture the context encapsulated by sequence tokens that are very far away from each other. As tokens are read in order, RNNs need to make sure the information coming from earlier tokens is not lost, as it may be needed at some point. This is why *Attention* is a very important concept for these DL models.
+
+Attention basically introduces **shortcut connections** to early tokens so that the RNN can look back to relevant tokens when it's necessary. There is also a variant of this method known as *Self-Attention*, which can be used to help predictions on a single input sequence, and it's the core building block of Transformer models.
+
+**6.5. Transformers**  
+Once attention issues with RNNs seemed to be solved with the introduction of these popular shortcut connections, RNNs were still slow to train and often difficult to parameterize due to their exploding gradients. To alleviate this, the Transformer model was proposed, which is a feedforward DL model able to work with sequential data [based on the paper *Attention is all you need*.]. Transformes take the entire sequence and read it at once, but through *positional embeddings* they respect the original sequence order, so that context is not lost. Transformers are nowadays the most popular models to deal with many of the tasks imposed by sequential data.
+
+Transformers were inspired by machine translation tasks, so they consist of an encoder-decoder architecture, that nevertheless has been adapted to tackle many other tasks such as question answering (where the encoder is used in a standalone way) and text generation (where the decoder is mainly involved).
+
+Two very accessible step by step tutorials on the transformer are [The
+Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html) and [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/). Moreover, the BERT (Pretraining of deep Bi-directional Transformers for Language understanding) model has been successfully proposed from the use of *transfer learning* in these architectures, and it has resulted very useful for some [NLP tasks](http://jalammar.github.io/illustrated-bert/).
+
+
+### Key (Supervised Learning) Methods
+
+**Transfer Learning**  
+Transfer learning is a two step process for training a deep neural network model, a pretraining step, followed by a finetuning step, where the model in trained on the target task. The features used by the pretraining often lead to boosts in performance and convergence speed of the target task, as well as needing less labelled data. Thanks to these benefits, Transfer Learning is now widely used in several applications. As the authors state, *"Typically, performing transfer learning is an excellent way to start work on a new problem of interest. There is the benefit of using a well-tested, standard neural network architecture, aside from the knowledge reuse, stability and convergence boosts offered by pretrained weights".*
+
+**Domain Adaptation**  
+Originates from what Jeremy Howards defined as the problem of *domain shift* in his fastai course. Very often, we want to adapt DL models to be able to perform a given task on data instances whose inherent distribution differs from the one in the training data set, although both types of instances may look similar. They key for these models is to learn features that are as invariant to the domain shift as possible, while performing well on the source domain. Some techniques considered in this regard are *gradient reversal*, *adversarial training*, and more recently *self-supervision*. 
+
+
+
+
+![TL](Transfer-Learning.PNG)
 
 
 
@@ -125,4 +161,11 @@ Models employed for this task are given a paragraph of text (as context) and a s
 
 
 
-**Applications not covered by the authors of this paper: video prediction, action recognition, and style transfer**.
+
+
+
+
+
+
+
+**Applications not covered by the authors of this paper: video prediction, action recognition, style transfer, structured prediction, and summarization**.
