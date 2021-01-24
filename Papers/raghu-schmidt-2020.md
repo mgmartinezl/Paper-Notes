@@ -145,15 +145,30 @@ Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html) a
 **Transfer Learning**  
 Transfer learning is a two step process for training a deep neural network model, a pretraining step, followed by a finetuning step, where the model in trained on the target task. The features used by the pretraining often lead to boosts in performance and convergence speed of the target task, as well as needing less labelled data. Thanks to these benefits, Transfer Learning is now widely used in several applications. As the authors state, *"Typically, performing transfer learning is an excellent way to start work on a new problem of interest. There is the benefit of using a well-tested, standard neural network architecture, aside from the knowledge reuse, stability and convergence boosts offered by pretrained weights".*
 
+![TL](Transfer-Learning.PNG)
+
 **Domain Adaptation**  
 Originates from what Jeremy Howards defined as the problem of *domain shift* in his fastai course. Very often, we want to adapt DL models to be able to perform a given task on data instances whose inherent distribution differs from the one in the training data set, although both types of instances may look similar. They key for these models is to learn features that are as invariant to the domain shift as possible, while performing well on the source domain. Some techniques considered in this regard are *gradient reversal*, *adversarial training*, and more recently *self-supervision*. 
 
+**Multitask Learning**  
+Multitask learning is usually implemented in practice by giving the neural network multiple heads (more than one output layer, e.g. one head for predicting age, one for predicting the disease of interest), which share all of the other features and parameters, across these different predictive tasks. This is where the benefit of multitask learning comes from — the shared features, which comprise of most of the network, get many different sources of feedback. Implementing multitask learning often also requires careful choice of the
+way to weight the training objectives for these different tasks.
 
+**Weak Supervision**  
+When it is hard to collect high-quality labels for a target task, *noisy labels* can often work out. Usually generated from automatic processes, these blurry labels may be easier to collect and still potentially useful.
 
+### Beyond Supervised Learning Methods: when less data is available
 
-![TL](Transfer-Learning.PNG)
+In areas such as medicine or neuroscience, collecting labeled data is a generally expensive process, which automaticaly discards the possibility of applying many powerul DL methods for specific tasks in such domains. In particular, semi-supervised learning and self-supervision have supposed remarkable advances to deal with the dependence on labeled data. An example of this follows:
 
+![SS](Self-Supervision.PNG)
 
+**Self Supervision**  
+In self-supervision, a pretext task is defined such that labels can be automatically calculated directly from the raw data instances. The image above represents one typical use case of self-supervision, but other possibilities include to look at using image patches as context to learn about the global image structure and important features. Self supervision is also useful in sequential data applications, in particular *word embeddings* (using neighboring tokens of the sequence as input context for predicting a target token), and *language modelling* (taking in all tokens up to a particular position and predicting the next token). 
+
+The key fundamental ideas of word embeddings are captured in the word2vec framework, the original framework relying on either a Continuous-Bag-of-Words (CBOW) neural network or a Skip-Gram neural network. Actually, both of these models are less neural networks and more two simple matrix multiplications, with the first matrix acting as a projection, and giving the desired embedding.
+
+**Semi-supervised Learning**  
 
 
 
